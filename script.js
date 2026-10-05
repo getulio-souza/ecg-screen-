@@ -397,6 +397,25 @@ function applyClassifications(){
   drawAll()
 }
 
+// full screen ecg
+function onFullScreen(){
+
+  const fullScreen = document.getElementById("fullScreenOption")
+
+  fullScreen.addEventListener("click", async ()=> {
+    try {
+      if(!document.fullscreenElement){
+        await document.documentElement.requestFullscreen()
+      } else{
+        await document.exitFullscreen()
+      }
+    } catch (error) {
+      console.error('Erro ao alternar tela cheia:', error);
+    }
+  })
+
+}
+
 //controla o zoom (para mais ou menos) modal de zoom 
 const zoomRange = document.getElementById("zoomRange");
 const zoomValue = document.getElementById("zoomValue");
