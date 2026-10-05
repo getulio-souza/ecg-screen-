@@ -1,0 +1,327 @@
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Nova Anotação - ECG</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <!-- APPLICATION HEADER -->
+    <header class="header">
+      <div class="header-title">
+        <div class="icon-box">
+          <svg
+            width="20"
+            height="20"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+          >
+            <path d="M22 12h-4l-3 9L9 3l-3 9H2" />
+          </svg>
+        </div>
+        <h1>Nova anotação</h1>
+      </div>
+
+      <div class="header-actions">
+        <button class="btn">
+          <svg
+            width="14"
+            height="14"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+          >
+            <path
+              d="M8 3H5a2 2 0 0 0-2 2v3m18 0V5a2 2 0 0 0-2-2h-3m0 18h3a2 2 0 0 0 2-2v-3M3 16v3a2 2 0 0 0 2 2h3"
+            />
+          </svg>
+          Tela cheia
+        </button>
+        <button class="btn" style="padding: 6px">
+          <svg
+            width="16"
+            height="16"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+          >
+            <circle cx="12" cy="12" r="10" />
+            <path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3" />
+            <line x1="12" y1="17" x2="12.01" y2="17" />
+          </svg>
+        </button>
+        <div class="avatar">DN</div>
+      </div>
+    </header>
+
+    <!-- PROCESS STEP BAR -->
+    <div class="steps-bar">
+      <div class="steps-container">
+        <div class="step-item">
+          <span class="step-badge">1</span>
+          <div>
+            <div class="step-title">Selecione um ou mais pontos</div>
+            <div class="step-subtitle">Escolha com base no traçado</div>
+          </div>
+        </div>
+        <div class="next-step">></div>
+        <svg
+          width="16"
+          height="16"
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="#cbd5e1"
+          stroke-width="2"
+        >
+          <polyline points="9 18 15 12 9 6" />
+        </svg>
+        <div class="step-item step-active">
+          <span class="step-badge">2</span>
+          <div>
+            <div class="step-title">Analise o traçado</div>
+            <div class="step-subtitle">
+              Avalie com a lupa e as ferramentas disponíveis
+            </div>
+          </div>
+        </div>
+        <div class="next-step">></div>
+        <svg
+          width="16"
+          height="16"
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="#cbd5e1"
+          stroke-width="2"
+        >
+          <polyline points="9 18 15 12 9 6" />
+        </svg>
+        <div class="step-item">
+          <span class="step-badge">3</span>
+          <div>
+            <div class="step-title">Classifique</div>
+            <div class="step-subtitle">Defina a condição clínica</div>
+          </div>
+        </div>
+      </div>
+      <div style="width: 288px"></div>
+    </div>
+
+    <!-- MAIN WORKSPACE -->
+    <div class="workspace">
+      <!-- CENTER DISPLAY AREA -->
+      <main class="main-panel">
+        <div class="viewer">
+          <!-- area da lupa -->
+          <article 
+            onclick="openEcgZoomModal()" 
+            class="lupa-container">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              viewBox="0 0 30 30"
+              aria-label="Ampliar"
+              title="aplicar zoom"
+            >
+              <path
+                d="M 13 3 C 7.4889971 3 3 7.4889971 3 13 C 3 18.511003 7.4889971 23 13 23 C 15.396508 23 17.597385 22.148986 19.322266 20.736328 L 25.292969 26.707031 A 1.0001 1.0001 0 1 0 26.707031 25.292969 L 20.736328 19.322266 C 22.148986 17.597385 23 15.396508 23 13 C 23 7.4889971 18.511003 3 13 3 z M 13 5 C 17.430123 5 21 8.5698774 21 13 C 21 17.430123 17.430123 21 13 21 C 8.5698774 21 5 17.430123 5 13 C 5 8.5698774 8.5698774 5 13 5 z"
+              ></path>
+            </svg>
+          </article>
+
+          <!-- modal de zoom do tracado -->
+              <div class="ecg-modal">
+                <!-- Cabeçalho -->
+                <header class="ecg-modal-header">
+                  <div>
+                    <h2>Zoom do traçado ECG</h2>
+                  </div>
+                  <button onclick="closeEcgZoomModal()" class="ecg-modal-close" aria-label="Fechar">
+                    &times;
+                  </button>
+                </header>
+                <!-- Área do ECG -->
+                <section class="ecg-viewer">
+                  <div class="ecg-grid"></div>
+                 
+                </section>
+                <!-- Rodapé / Zoom -->
+                <footer class="ecg-modal-footer">
+                  <div class="zoom-header">
+                    <span>Zoom</span> <strong>100%</strong>
+                  </div>
+                  <div class="ecg-fragment">
+                    <img src="/exemplo de ecg para modal de zoom.png" alt="">
+                  </div>
+                  <div class="zoom-slider">
+                    <span class="zoom-min">−</span>
+                    <input
+                      type="range"
+                      min="50"
+                      max="300"
+                      value="100"
+                      class="zoom-range"
+                    />
+                    <span class="zoom-max">+</span>
+                  </div>
+                </footer>
+              </div>
+
+          <div class="sheet-scroll">
+            <div class="sheet" id="sheet">
+            </div>
+          </div>
+          <div class="statusbar">
+            <span class="list" id="statusText">Nenhuma linha selecionada</span>
+            <button class="btn" id="clearBtn">Limpar seleção</button>
+          </div>
+        </div>
+      </main>
+
+      <!-- RIGHT SIDEBAR -->
+      <section>
+        <div>
+          <button
+            onclick="toogleRightSidebar()"
+            id="toggleRightBtn"
+            class="toggle-btn toggle-btn-right"
+          >
+            <svg
+              id="toogle-icon"
+              width="12"
+              height="12"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+            >
+              <polyline points="9 18 15 12 9 6" />
+            </svg>
+          </button>
+        </div>
+        <!-- coluna da direita -->
+        <aside id="rightSidebar" class="sidebar">
+          <div class="card card-flex">
+            <div class="card-title">Selecione uma Classificação</div>
+            <div class="card-desc">Atalhos numéricos 1 a 5</div>
+
+            <!-- Cabeçalho -->
+             <div style="display: flex; gap: 1rem">
+              <label
+              style="border: none;"
+                class="class-opt class-opt-fa"
+                onclick="selectOption(this)"
+              >
+                <div></span>Selecionados</div>
+              </label>
+              <label
+                style="border: none;"
+                class="class-opt class-opt-fa"
+                onclick="selectOption(this)"
+              >
+                <div></span>Restante</div>
+              </label>
+            </div>
+
+            <div style="display: flex; gap: 1rem">
+              <button
+                class="class-opt class-opt-fa"
+                onclick="selectOption(this)"
+              >
+                <div><span class="opt-key opt-key-fa">1</span>FA</div>
+              </button>
+              <button
+                class="class-opt class-opt-fa"
+                onclick="selectOption(this)"
+              >
+                <div><span class="opt-key opt-key-fa">1</span>FA</div>
+              </button>
+            </div>
+
+            <div style="display: flex; gap: 1rem">
+              <button
+                class="class-opt class-opt-tsv"
+                onclick="selectOption(this)"
+              >
+                <div><span class="opt-key opt-key-tsv">2</span>TSV</div>
+              </button>
+              <button
+                class="class-opt class-opt-tsv"
+                onclick="selectOption(this)"
+              >
+                <div>
+                  <span class="opt-key opt-key-tsv">2</span>TSV
+                </div>
+              </button>
+            </div>
+
+            <div style="display: flex; gap: 1rem">
+              <button
+                class="class-opt class-opt-normal"
+                onclick="selectOption(this)"
+              >
+                <div><span class="opt-key opt-key-normal">3</span>Normal</div>
+              </button>
+              <button
+                class="class-opt class-opt-normal"
+                onclick="selectOption(this)"
+              >
+                <div>
+                  <span class="opt-key opt-key-normal">3</span>Normal 
+                </div>
+              </button>
+            </div>
+
+            <div style="display: flex; gap: 1rem">
+              <button
+                class="class-opt class-opt-anormal"
+                onclick="selectOption(this)"
+              >
+                <div><span class="opt-key opt-key-anormal">4</span>Anormal</div>
+              </button>
+              <button
+                class="class-opt class-opt-anormal"
+                onclick="selectOption(this)"
+              >
+                <div>
+                  <span class="opt-key opt-key-anormal">4</span>Anormal 
+                </div>
+              </button>
+            </div>
+
+            <div style="display: flex; gap: 1rem">
+              <button
+                class="class-opt class-opt-noise"
+                onclick="selectOption(this)"
+              >
+                <div>
+                  <span class="opt-key opt-key-noise">5</span>Interferência
+                </div>
+              </button>
+              <button
+                class="class-opt class-opt-noise"
+                onclick="selectOption(this)"
+              >
+                <div>
+                  <span class="opt-key opt-key-noise">5</span>Interferência
+                  
+                </div>
+              </button>
+            </div>
+              <!-- button para aplicar classificacoes -->
+              <div>
+                <button onclick="applyClassifications()" class="btn-action">Aplicar classificações</button>
+              </div>
+              <div>
+                <button class="btn-action">Aplicar restante</button>
+              </div>
+          </div>
+        </aside>
+      </section>
+    </div>
+    <script src="script.js"></script>
+  </body>
+</html>
