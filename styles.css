@@ -158,7 +158,7 @@ body {
 }
 .cell:hover { outline: 1px solid #94a3b8; outline-offset: -1px; }
 .cell.sel {
-  /* background-image: linear-gradient(var(--accent-green-bg), var(--accent-green-bg)); */
+  background-image: linear-gradient(var(--accent-green-bg), var(--accent-green-bg));
     outline: 2px solid #d1d1d1;
   outline-offset: -2px;
 }

@@ -388,6 +388,9 @@ function applyClassifications(){
     label.textContent = `${classification}`
     label.style.background = 'class-opt-tsv.selected'
     label.classList.remove('hidden')
+
+    // limpa a selecao para permitir uma nova
+    selected.clear()
   })
 
   render()
