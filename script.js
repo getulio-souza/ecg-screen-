@@ -1,7 +1,7 @@
 /* =========================================================
    1. Configuração e referências
    ========================================================= */
-const COLS = ['A', 'B', 'C', 'D'];
+const COLS = ['A', 'B', 'C', 'D', 'E', 'F'];
 const ROWS = 10;
 
 const sheet = document.getElementById('sheet');
