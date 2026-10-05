@@ -397,13 +397,19 @@ function applyClassifications(){
   drawAll()
 }
 
+//controla o zoom (para mais ou menos) modal de zoom 
+const zoomRange = document.getElementById("zoomRange");
+const zoomValue = document.getElementById("zoomValue");
+
+zoomRange.addEventListener("click", ()=> {
+  zoomValue.textContent = `${zoomRange.value}%`
+})
+
 
 //controla a exibicao do modal de zoom de ecg
 document.addEventListener("DOMContentLoaded", ()=> {
      modalZoom = document.querySelector(".ecg-modal")
      renderModal()
-
-    
 })
 
 

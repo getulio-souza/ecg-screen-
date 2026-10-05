@@ -151,7 +151,7 @@
                 <!-- Rodapé / Zoom -->
                 <footer class="ecg-modal-footer">
                   <div class="zoom-header">
-                    <span>Zoom</span> <strong>100%</strong>
+                    <span>Zoom:</span> <strong id="zoomValue"></strong>
                   </div>
                   <div class="ecg-fragment">
                     <img src="/exemplo de ecg para modal de zoom.png" alt="">
@@ -159,10 +159,11 @@
                   <div class="zoom-slider">
                     <span class="zoom-min">−</span>
                     <input
+                      id="zoomRange"
                       type="range"
-                      min="50"
-                      max="300"
-                      value="100"
+                      min="0"
+                      max="100"
+                      value="0"
                       class="zoom-range"
                     />
                     <span class="zoom-max">+</span>
