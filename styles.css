@@ -197,7 +197,7 @@ body {
   font-size: 12px; font-weight: 500; cursor: pointer; text-align: left;
 }
 .class-opt:hover { border-color: #cbd5e1; }
-/* .class-opt.selected { border: 2px solid var(--accent-green); background: #ecfdf5; color: #065f46; font-weight: 700; } */
+.class-opt.selected { border: 2px solid var(--accent-green); background: #ecfdf5; color: #065f46; font-weight: 700; }
 .opt-key {
   width: 20px; height: 20px; margin-right: 8px;
   display: inline-flex; align-items: center; justify-content: center;
@@ -417,4 +417,35 @@ body {
 
 .cell-footer-label.hidden {
   display: none;
+}
+
+
+.cell.classified-fa {
+  border: 2px solid rgb(187, 73, 73);
+  background-color: rgb(255, 225, 225);
+  box-shadow: inset 0 0 0 1px rgba(165, 25, 25, 0.15);
+}
+
+.cell.classified-tsv {
+  border: 2px solid rgb(108, 108, 195);
+  background-color: rgb(225, 225, 255);
+  box-shadow: inset 0 0 0 1px rgba(54, 54, 181, 0.15);
+}
+
+.cell.classified-normal {
+  border: 2px solid rgb(109, 202, 96);
+  background-color: rgb(225, 245, 220);
+  box-shadow: inset 0 0 0 1px rgba(43, 163, 27, 0.15);
+}
+
+.cell.classified-anormal {
+  border: 2px solid rgb(226, 218, 113);
+  background-color: rgb(255, 250, 215);
+  box-shadow: inset 0 0 0 1px rgba(217, 206, 47, 0.15);
+}
+
+.cell.classified-noise {
+  border: 2px solid rgb(140, 107, 223);
+  background-color: rgb(235, 225, 255);
+  box-shadow: inset 0 0 0 1px rgba(95, 53, 201, 0.15);
 }

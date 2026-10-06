@@ -78,6 +78,7 @@ function buildGrid() {
       cells.set(id, c);
       sheet.appendChild(c);
     });
+    
   }
 }
 
@@ -306,7 +307,7 @@ function selectOption(opt) {
     } 
 
     else if (opt.classList.contains('class-opt-noise')) {
-        classification = 'noise';
+        classification = 'interferência';
     }
 
     if(!classification) return;
@@ -382,7 +383,6 @@ function applyClassifications(){
 
     if(selectedOption){
       label.style.backgroundColor = getComputedStyle(selectedOption).backgroundColor
-
     }
     
     label.textContent = `${classification}`
@@ -395,6 +395,62 @@ function applyClassifications(){
 
   render()
   drawAll()
+}
+
+
+function applyRemaining() {
+  console.log('entrou no apply remaining');
+
+  if (!classification) {
+    console.log('Nenhuma classificação selecionada');
+    return;
+  }
+
+  const selectedOption =
+    document.querySelector('.class-opt.selected');
+
+  if (!selectedOption) {
+    console.log('Nenhuma opção selecionada');
+    return;
+  }
+
+  const backgroundColor =
+    getComputedStyle(selectedOption).backgroundColor;
+
+  cells.forEach((cell, id) => {
+
+    // Não altera quem já possui classificação
+    if (classifications.has(id)) {
+      return;
+    }
+
+    // Salva a classificação
+    classifications.set(id, [classification]);
+
+    // Procura o container das labels
+    let labelsContainer =
+      cell.querySelector('.cell-labels');
+
+    // Se não existir, cria
+    if (!labelsContainer) {
+      labelsContainer = document.createElement('div');
+      labelsContainer.className = 'cell-labels';
+
+      cell.appendChild(labelsContainer);
+    }
+
+    // Cria a label
+    const label = document.createElement('label');
+
+    label.className = 'cell-footer-label';
+    label.textContent = classification;
+    label.style.backgroundColor = backgroundColor;
+
+    labelsContainer.appendChild(label);
+  });
+
+  render();
+  drawAll();
 }
 
 // full screen ecg
