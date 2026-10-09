@@ -498,16 +498,48 @@ body {
 #clearBtn{
     background: #11184F;
     border: 1px solid var(--border-color);
-    padding: 4px 10px;
     border-radius: 6px;
     font-size: 12px;
     color: white;
     cursor: pointer;
     font-weight: 600;
-    padding: 6px 20px;
     transition: .5s;
 }
 
 #clearBtn:hover{
     opacity: 0.8;
 }
+
+.primary-btn{
+background-color: #10b981;
+  color: #ffffff;
+  transition: .5s;
+}
+
+.primary-btn:hover{
+    opacity: 0.7;
+}
+
+.secundary-btn{
+  background-color: transparent;
+  color: #0f1746;
+  border: 2px solid #0f1746;
+  transition: .5s;
+}
+
+.secundary-btn:hover{
+    opacity: 0.7;
+}
+
+.btn-tertiary{
+    background-color: transparent;
+    color: #ef4444;
+    border: none;
+    transition: .5s;
+}
+
+.btn-tertiary:hover{
+    opacity: 0.7;
+}
+
+

@@ -114,7 +114,6 @@
           </div>
           <div class="statusbar">
             <span class="list" id="statusText">Nenhuma linha selecionada</span>
-            <button onclick="onClearSelection()" id="clearBtn">Limpar seleção</button>
           </div>
         </div>
       </main>
@@ -155,13 +154,6 @@
               >
                 <div></span>Selecionados</div>
               </label>
-              <!-- <label
-                style="border: none;"
-                class="class-opt class-opt-fa"
-                onclick="selectOption(this)"
-              >
-                <div></span>Restante</div>
-              </label> -->
             </div>
 
             <div style="display: flex; gap: 1rem">
@@ -171,12 +163,6 @@
               >
                 <div><span class="opt-key opt-key-fa">1</span>FA</div>
               </button>
-              <!-- <button
-                class="class-opt class-opt-fa"
-                onclick="selectOption(this)"
-              >
-                <div><span class="opt-key opt-key-fa">1</span>FA</div>
-              </button> -->
             </div>
 
             <div style="display: flex; gap: 1rem">
@@ -186,14 +172,6 @@
               >
                 <div><span class="opt-key opt-key-tsv">2</span>TSV</div>
               </button>
-              <!-- <button
-                class="class-opt class-opt-tsv"
-                onclick="selectOption(this)"
-              >
-                <div>
-                  <span class="opt-key opt-key-tsv">2</span>TSV
-                </div>
-              </button> -->
             </div>
 
             <div style="display: flex; gap: 1rem">
@@ -203,14 +181,6 @@
               >
                 <div><span class="opt-key opt-key-normal">3</span>Normal</div>
               </button>
-              <!-- <button
-                class="class-opt class-opt-normal"
-                onclick="selectOption(this)"
-              >
-                <div>
-                  <span class="opt-key opt-key-normal">3</span>Normal 
-                </div>
-              </button> -->
             </div>
 
             <div style="display: flex; gap: 1rem">
@@ -220,14 +190,6 @@
               >
                 <div><span class="opt-key opt-key-anormal">4</span>Anormal</div>
               </button>
-              <!-- <button
-                class="class-opt class-opt-anormal"
-                onclick="selectOption(this)"
-              >
-                <div>
-                  <span class="opt-key opt-key-anormal">4</span>Anormal 
-                </div>
-              </button> -->
             </div>
 
             <div style="display: flex; gap: 1rem">
@@ -239,22 +201,16 @@
                   <span class="opt-key opt-key-noise">5</span>Interferência
                 </div>
               </button>
-              <!-- <button
-                class="class-opt class-opt-noise"
-                onclick="selectOption(this)"
-              >
-                <div>
-                  <span class="opt-key opt-key-noise">5</span>Interferência
-                  
-                </div>
-              </button> -->
             </div>
               <!-- button para aplicar classificacoes -->
               <div>
-                <button onclick="applyClassifications()" class="btn-action">Aplicar classificações</button>
+                <button onclick="applyClassifications()" class="btn-action primary-btn">Aplicar classificações</button>
               </div>
               <div>
-                <button id="aplicarRestante" onclick="applyRemaining()" class="btn-action">Aplicar restante</button>
+                <button id="aplicarRestante" onclick="applyRemaining()" class="btn-action secundary-btn">Aplicar restante</button>
+              </div>
+              <div>
+                <button class="btn-action btn-tertiary" onclick="onClearSelection()" id="clearBtn">Limpar seleção</button>
               </div>
           </div>
 
