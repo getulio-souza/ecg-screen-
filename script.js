@@ -141,7 +141,10 @@ sheet.addEventListener('mouseover', e => {
 });
 
 window.addEventListener('mouseup', () => { dragging = false; });
-clearBtn.addEventListener('click', () => { selected.clear(); render(); });
+
+if (clearBtn) {
+  clearBtn.addEventListener('click', onClearSelection);
+}
 
 /* =========================================================
    4. Atualização da tela
@@ -425,7 +428,8 @@ function applyRemaining() {
     }
 
     // Salva a classificação
-    classifications.set(id, [classification]);
+    // classifications.set(id, [classification]);
+    classifications.set(id, classification);
 
     // Procura o container das labels
     let labelsContainer =
@@ -471,6 +475,48 @@ function onFullScreen(){
   })
 
 }
+
+// 1. Função que limpa e atualiza
+// 1. Função responsável por limpar a seleção E as classificações ativas das células selecionadas
+function onClearSelection() {
+  console.log('chamou o limpar seleção!');
+
+  // Se nada estiver selecionado, limpa todas as classificações (comportamento global)
+  // ou limpa apenas as células que estão selecionadas atualmente
+  const idsToClear = selected.size > 0 ? Array.from(selected) : Array.from(cells.keys());
+
+  idsToClear.forEach(id => {
+    // Remove do mapa de classificações
+    classifications.delete(id);
+
+    // Reseta a label no rodapé da célula
+    const cell = cells.get(id);
+    if (cell) {
+      const label = cell.querySelector('.cell-footer-label');
+      if (label) {
+        label.textContent = '';
+        label.style.backgroundColor = '';
+        label.style.background = '';
+        label.classList.add('hidden');
+      }
+
+      // Remove eventuais containers extras de labels criados pelo applyRemaining
+      const extraLabels = cell.querySelector('.cell-labels');
+      if (extraLabels) {
+        extraLabels.remove();
+      }
+    }
+  });
+
+  // Limpa o conjunto de seleção
+  selected.clear();
+
+  // Atualiza a renderização e redesenha os canvas
+  render();
+  drawAll();
+}
+
+
 
 //controla o zoom (para mais ou menos) modal de zoom 
 const zoomRange = document.getElementById("zoomRange");
