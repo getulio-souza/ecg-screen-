@@ -64,7 +64,7 @@ function buildGrid() {
       c.dataset.id = id;
       c.dataset.col = col;
       c.dataset.row = r;
-      c.appendChild(mk('span', 'tag', id));
+      // c.appendChild(mk('span', 'tag', id));
       c.appendChild(document.createElement('canvas'));
 
       const label = mk(
