@@ -63,58 +63,6 @@
       </div>
     </header>
 
-    <!-- PROCESS STEP BAR -->
-    <!-- <div class="steps-bar">
-      <div class="steps-container">
-        <div class="step-item">
-          <span class="step-badge">1</span>
-          <div>
-            <div class="step-title">Selecione um ou mais pontos</div>
-            <div class="step-subtitle">Escolha com base no traçado</div>
-          </div>
-        </div>
-        <div class="next-step">></div>
-        <svg
-          width="16"
-          height="16"
-          viewBox="0 0 24 24"
-          fill="none"
-          stroke="#cbd5e1"
-          stroke-width="2"
-        >
-          <polyline points="9 18 15 12 9 6" />
-        </svg>
-        <div class="step-item step-active">
-          <span class="step-badge">2</span>
-          <div>
-            <div class="step-title">Analise o traçado</div>
-            <div class="step-subtitle">
-              Avalie com a lupa e as ferramentas disponíveis
-            </div>
-          </div>
-        </div>
-        <div class="next-step">></div>
-        <svg
-          width="16"
-          height="16"
-          viewBox="0 0 24 24"
-          fill="none"
-          stroke="#cbd5e1"
-          stroke-width="2"
-        >
-          <polyline points="9 18 15 12 9 6" />
-        </svg>
-        <div class="step-item">
-          <span class="step-badge">3</span>
-          <div>
-            <div class="step-title">Classifique</div>
-            <div class="step-subtitle">Defina a condição clínica</div>
-          </div>
-        </div>
-      </div>
-      <div style="width: 288px"></div>
-    </div> -->
-
     <!-- MAIN WORKSPACE -->
     <div class="workspace">
       <!-- CENTER DISPLAY AREA -->
@@ -166,7 +114,7 @@
           </div>
           <div class="statusbar">
             <span class="list" id="statusText">Nenhuma linha selecionada</span>
-            <button onclick="onClearSelection()" class="btn" id="clearBtn">Limpar seleção</button>
+            <button onclick="onClearSelection()" id="clearBtn">Limpar seleção</button>
           </div>
         </div>
       </main>
@@ -195,7 +143,7 @@
         <!-- coluna da direita -->
         <aside id="rightSidebar" class="sidebar">
           <div class="card card-flex">
-            <div class="card-title">Selecione uma Classificação</div>
+            <h2 class="card-title">Selecione uma Classificação</h2>
             <div class="card-desc">Atalhos numéricos 1 a 5</div>
 
             <!-- Cabeçalho -->
@@ -207,13 +155,13 @@
               >
                 <div></span>Selecionados</div>
               </label>
-              <label
+              <!-- <label
                 style="border: none;"
                 class="class-opt class-opt-fa"
                 onclick="selectOption(this)"
               >
                 <div></span>Restante</div>
-              </label>
+              </label> -->
             </div>
 
             <div style="display: flex; gap: 1rem">
@@ -223,12 +171,12 @@
               >
                 <div><span class="opt-key opt-key-fa">1</span>FA</div>
               </button>
-              <button
+              <!-- <button
                 class="class-opt class-opt-fa"
                 onclick="selectOption(this)"
               >
                 <div><span class="opt-key opt-key-fa">1</span>FA</div>
-              </button>
+              </button> -->
             </div>
 
             <div style="display: flex; gap: 1rem">
@@ -238,14 +186,14 @@
               >
                 <div><span class="opt-key opt-key-tsv">2</span>TSV</div>
               </button>
-              <button
+              <!-- <button
                 class="class-opt class-opt-tsv"
                 onclick="selectOption(this)"
               >
                 <div>
                   <span class="opt-key opt-key-tsv">2</span>TSV
                 </div>
-              </button>
+              </button> -->
             </div>
 
             <div style="display: flex; gap: 1rem">
@@ -255,14 +203,14 @@
               >
                 <div><span class="opt-key opt-key-normal">3</span>Normal</div>
               </button>
-              <button
+              <!-- <button
                 class="class-opt class-opt-normal"
                 onclick="selectOption(this)"
               >
                 <div>
                   <span class="opt-key opt-key-normal">3</span>Normal 
                 </div>
-              </button>
+              </button> -->
             </div>
 
             <div style="display: flex; gap: 1rem">
@@ -272,14 +220,14 @@
               >
                 <div><span class="opt-key opt-key-anormal">4</span>Anormal</div>
               </button>
-              <button
+              <!-- <button
                 class="class-opt class-opt-anormal"
                 onclick="selectOption(this)"
               >
                 <div>
                   <span class="opt-key opt-key-anormal">4</span>Anormal 
                 </div>
-              </button>
+              </button> -->
             </div>
 
             <div style="display: flex; gap: 1rem">
@@ -291,7 +239,7 @@
                   <span class="opt-key opt-key-noise">5</span>Interferência
                 </div>
               </button>
-              <button
+              <!-- <button
                 class="class-opt class-opt-noise"
                 onclick="selectOption(this)"
               >
@@ -299,7 +247,7 @@
                   <span class="opt-key opt-key-noise">5</span>Interferência
                   
                 </div>
-              </button>
+              </button> -->
             </div>
               <!-- button para aplicar classificacoes -->
               <div>
@@ -309,9 +257,8 @@
                 <button id="aplicarRestante" onclick="applyRemaining()" class="btn-action">Aplicar restante</button>
               </div>
           </div>
-        </aside>
 
-        <div class="steps-bar">
+          <div class="steps-bar">
           <div class="steps-container">
             <h2>Como fazer a anotação</h2>
             <div class="step-item">
@@ -360,8 +307,7 @@
             </div>
             <div style="width: 288px"></div>
           </div>
-
-
+        </aside>
             </section>
           </div>
           <script src="script.js"></script>
